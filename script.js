@@ -40,3 +40,33 @@ const findSignOfTheProduct = (numero1, numero2, numero3) => {
   }
 };
 findSignOfTheProduct(3, -7, 2);
+//3. Write a JavaScript conditional statement to sort three numbers. Display an alert box to show the results.
+//Sample numbers : 0, -1, 4
+//Output : 4, 0, -1
+const sortNumbers = (numero1, numero2, numero3) => {
+  const result = [];
+  if (numero1 > numero2 && numero1 > numero3) {
+    if (numero2 > numero3) {
+      result.push(numero1, numero2, numero3);
+    } else result.push(numero1, numero3, numero2);
+  } else if (numero2 > numero1 && numero2 > numero3) {
+    if (numero1 > numero3) {
+      result.push(numero2, numero1, numero3);
+    } else result.push(numero2, numero3, numero1);
+  } else if (numero3 > numero1 && numero3 > numero2) {
+    if (numero1 > numero2) {
+      result.push(numero3, numero1, numero2);
+    } else result.push(numero3, numero2, numero1);
+  }
+  return result;
+};
+alert(sortNumbers(0, -1, 4));
+
+//Se puede hacer sin condicionales más fácil, con el método sort
+const sortNumbers2 = (numero1, numero2, numero3) => {
+  const numbers = [numero1, numero2, numero3];
+  numbers.sort((a, b) => b - a); // Ordena de mayor a menor
+  return numbers;
+};
+
+console.log(sortNumbers2(0, -1, 4).join(", "));
